@@ -167,9 +167,8 @@ export default {
 		
 		BABYLON.VertexData.ComputeNormals(positions, indices, normals)
 		BABYLON.VertexData._ComputeSides(BABYLON.Mesh.DOUBLESIDE, positions, indices, normals, uvs)  	
-		console.log(uvs)		
 		//Create a custom mesh  
-		let customMesh = new BABYLON.Mesh("custom", scene)
+		let customMesh = new BABYLON.Mesh(name, scene)
 
 		//Create a vertexData object
 		let vertexData = new BABYLON.VertexData()
@@ -181,6 +180,26 @@ export default {
 		vertexData.uvs = uvs
 
 		//Apply vertexData to custom mesh
+		vertexData.applyToMesh(customMesh)
+		
+		return customMesh
+	},
+	createCustomMesh({name, positions, indices, colors, material, scene}){
+		const customMesh = new BABYLON.Mesh(name, scene)
+		customMesh.material = material
+
+		console.log(customMesh)
+
+		const normals = []
+
+		const vertexData = new BABYLON.VertexData()
+		BABYLON.VertexData.ComputeNormals(positions, indices, normals)
+
+		vertexData.positions = positions
+		vertexData.indices = indices
+		// vertexData.colors = colors
+		vertexData.normals = normals
+
 		vertexData.applyToMesh(customMesh)
 		
 		return customMesh

@@ -1,4 +1,6 @@
 import APP from './class/app/app.js'
+import AUDIO from './class/audio/audio.js'
+import VISUALIZER from './class/visualizer/visualizer.js'
 
 new Vue({
     el: '#wrap',
@@ -33,14 +35,22 @@ new Vue({
             }
         },
         renderBabylon(){
-            const {app} = OBJECT
+            const {app, audio} = OBJECT
             
             for(let i in OBJECT){
                 if(!OBJECT[i].animate) continue
-                OBJECT[i].animate({app})
+                OBJECT[i].animate({app, audio})
             }
         },
         createObject(app){
+            this.createAudio()
+            this.createVisualizer(app)
+        },
+        createAudio(){
+            OBJECT.audio = new AUDIO()
+        },
+        createVisualizer(app){
+            OBJECT.visualizer = new VISUALIZER(app)
         },
 
 

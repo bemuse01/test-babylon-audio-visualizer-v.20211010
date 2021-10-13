@@ -34,11 +34,11 @@ export default class{
         const scene = new BABYLON.Scene(engine)
         scene.clearColor = new BABYLON.Color4(0, 0, 0, 1)
 
-        for(const module in this.modules){
-            const instance = this.modules[module]
+        // for(const module in this.modules){
+        //     const instance = this.modules[module]
 
-            this.comp[module] = new instance(scene)
-        }
+        //     this.comp[module] = new instance(scene)
+        // }
         
         return scene
     }

@@ -63,21 +63,12 @@ export default class{
         // const position = this.plane.getVerticesData(BABYLON.VertexBuffer.PositionKind)
         // console.log(position)
 
-        const geometry = new PlaneGeometry(2, 1, 1)
+        const geometry = new PlaneGeometry(6, 0.05, 1)
         const positions = [...geometry.attributes.position.array]
         const indices = [...geometry.index.array]
         const colors = Array.from({length: positions.length / 3}, () => [1, 1, 1, 1]).flat()
 
-        // var positions =  [-5, 5, 0, 0, 5, 0, 5, 5, 0, -5, -5, 0, 0, -5, 0, 5, -5, 0]0: -51: 52: 03: 04: 55: 06: 57: 58: 09: -510: -511: 012: 013: -514: 015: 516: -517: 0length: 18[[Prototype]]: Array(0);
-        // var indices = [0, 1, 2];
-        // var colors = [1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1]; 
-
-        console.log(positions, indices, colors)
-        console.log(geometry)
-
-        const plane = BABYLON_METHOD.createCustomMesh({name: 'plane', material, positions, indices, colors, scene})
-
-        // console.log(plane.getVerticesData(BABYLON.VertexBuffer.PositionKind))
+        this.mesh = BABYLON_METHOD.createCustomMesh({name: 'plane', material, positions, indices, colors, scene})
     }
 
 
@@ -88,7 +79,11 @@ export default class{
 
 
     // animate
-    animate(){
+    animate({audioData}){
+        if(!audioData) return
+    
+        const position = this.mesh.getVerticesData(BABYLON.VertexBuffer.PositionKind)
 
+        // this.mesh.updateVerticesData(BABYLON.VertexBuffer.PositionKind, position)
     }
 }

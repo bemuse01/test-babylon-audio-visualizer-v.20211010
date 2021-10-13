@@ -2,7 +2,7 @@ import PUBLIC_METHOD from '../../method/method.js'
 import CHILD from './build/visualizer.child.build.js'
 
 export default class{
-    constructor(scene){
+    constructor({scene}){
         this.param = {
         }
 
@@ -61,13 +61,17 @@ export default class{
 
 
     // animate
-    animate({app}){
+    animate({app, audio}){
         this.render(app)
-        this.animateObject()
+        this.animateObject(audio)
     }
     render(app){
     }
-    animateObject(){
+    animateObject(audio){
+        for(let i in this.comp){
+            if(!this.comp[i] || !this.comp[i].animate) continue
+            this.comp[i].animate(audio)
+        }
     }
 
 

@@ -188,8 +188,6 @@ export default {
 		const customMesh = new BABYLON.Mesh(name, scene)
 		customMesh.material = material
 
-		console.log(customMesh)
-
 		const normals = []
 
 		const vertexData = new BABYLON.VertexData()
@@ -198,7 +196,7 @@ export default {
 		vertexData.positions = positions
 		vertexData.indices = indices
 		// vertexData.colors = colors
-		// vertexData.normals = normals
+		vertexData.normals = normals
 
 		vertexData.applyToMesh(customMesh)
 		

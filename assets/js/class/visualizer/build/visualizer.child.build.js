@@ -7,9 +7,9 @@ export default class{
         this.param = {
             fps: 60,
             step: 12,
-            width: 6,
+            width: 5,
             height: 0.05,
-            maxHeight: 1,
+            maxHeight: 2,
             display: 16 ** 2,
             seg: 16 ** 2 - 1,
             size: 16,
@@ -108,7 +108,7 @@ export default class{
         for(let i = 0; i < half; i++){
             const idx1 = i * 3
             const idx2 = (i + half) * 3
-            
+
             const dist = buffer[i] * 1
 
             array[idx1 + 1] = dist

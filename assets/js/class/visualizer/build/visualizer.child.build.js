@@ -63,7 +63,7 @@ export default class{
         // const position = this.plane.getVerticesData(BABYLON.VertexBuffer.PositionKind)
         // console.log(position)
 
-        const geometry = new PlaneGeometry(10, 10, 2)
+        const geometry = new PlaneGeometry(2, 1, 1)
         const positions = [...geometry.attributes.position.array]
         const indices = [...geometry.index.array]
         const colors = Array.from({length: positions.length / 3}, () => [1, 1, 1, 1]).flat()

@@ -198,7 +198,7 @@ export default {
 		vertexData.positions = positions
 		vertexData.indices = indices
 		// vertexData.colors = colors
-		vertexData.normals = normals
+		// vertexData.normals = normals
 
 		vertexData.applyToMesh(customMesh)
 		

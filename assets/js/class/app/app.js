@@ -23,7 +23,7 @@ export default class{
         // this.camera.setTarget(BABYLON.Vector3.Zero())
         // this.camera.attachControl(canvas, true)
 
-        this.camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, 0, 10), this.scene)
+        this.camera = new BABYLON.FreeCamera('camera1', new BABYLON.Vector3(0, 0, -10), this.scene)
         this.camera.setTarget(BABYLON.Vector3.Zero())
         // this.camera.attachControl(canvas, true)
     }

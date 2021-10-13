@@ -198,7 +198,7 @@ export default {
 		// vertexData.colors = colors
 		vertexData.normals = normals
 
-		vertexData.applyToMesh(customMesh)
+		vertexData.applyToMesh(customMesh, true)
 		
 		return customMesh
 	}

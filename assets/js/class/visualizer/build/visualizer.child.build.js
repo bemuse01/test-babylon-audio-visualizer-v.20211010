@@ -36,7 +36,7 @@ export default class{
     }
     createMesh(scene){
         const {positions, indices, colors} = this.createGeometry()
-        const material = this.createMaterial()
+        const material = this.createMaterial(scene)
         this.mesh = BABYLON_METHOD.createCustomMesh({name: 'plane', material, positions, indices, colors, scene})
     }
     createGeometry(){
@@ -47,7 +47,7 @@ export default class{
 
         return {positions, indices, colors}
     }
-    createMaterial(){
+    createMaterial(scene){
         const material = new BABYLON.StandardMaterial('material', scene)
         material.emissiveColor = new BABYLON.Color3(1, 1, 1)
         return material

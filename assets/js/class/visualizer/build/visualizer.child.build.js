@@ -32,58 +32,25 @@ export default class{
 
     // create
     create(scene){
-        const material = new BABYLON.StandardMaterial('material', scene)
-        material.emissiveColor = new BABYLON.Color3(1, 1, 1)
-
-        // const pcs = new BABYLON.PointsCloudSystem("pcs", 5, scene)
-        // // pcs.material = material
-
-        // const myfunc = (particle, i, s) => {
-        //     particle.position = new BABYLON.Vector3(0.5 + 0.25 * Math.random(), i / 5000, 0.25 * Math.random())
-        //     particle.color = new BABYLON.Color4(Math.random(), Math.random(), Math.random(), Math.random())
-        // }
-
-        // pcs.addPoints(1000, myfunc)
-
-        // console.log(pcs)
-
-        // this.plane = new BABYLON.MeshBuilder.CreatePlane('plane', {width: 10, height: 0.1, updatable: true, sideOrientation: BABYLON.Mesh.BACKSIDE}, scene)
-
-        // this.plane.forceSharedVertices()
-        // this.plane.increaseVertices(20)
-
-        // this.plane.position.y = 0
-        // this.plane.material = material
-
-        // const path = []
-    
-        // const size = 10
-        // const offset = size / -2
-        // const count = 2 - 1
-        // const width = size / count
-    
-        // for(let i = 0; i <= count; i++){
-        //     const x = offset + width * i 
-        //     const y = 0
-        //     const z = 0
-        //     const v = new BABYLON.Vector3(x, y, z)
-        //     path.push(v)
-        // }
-
-        // const line = BABYLON_METHOD.line2D('line', {path, width: 0.1}, scene)
-        // line.material = material
-
-        // const position = this.plane.getVerticesData(BABYLON.VertexBuffer.PositionKind)
-        // console.log(position)
-
+        this.createMesh(scene)
+    }
+    createMesh(scene){
+        const {positions, indices, colors} = this.createGeometry()
+        const material = this.createMaterial()
+        this.mesh = BABYLON_METHOD.createCustomMesh({name: 'plane', material, positions, indices, colors, scene})
+    }
+    createGeometry(){
         const geometry = new PlaneGeometry(this.param.width, this.param.height, this.param.seg)
         const positions = [...geometry.attributes.position.array]
         const indices = [...geometry.index.array]
         const colors = Array.from({length: positions.length / 3}, () => [1, 1, 1, 1]).flat()
 
-        this.mesh = BABYLON_METHOD.createCustomMesh({name: 'plane', material, positions, indices, colors, scene})
-
-        console.log(this.mesh)
+        return {positions, indices, colors}
+    }
+    createMaterial(){
+        const material = new BABYLON.StandardMaterial('material', scene)
+        material.emissiveColor = new BABYLON.Color3(1, 1, 1)
+        return material
     }
 
 

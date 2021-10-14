@@ -184,7 +184,7 @@ export default {
 		
 		return customMesh
 	},
-	createCustomMesh({name, positions, indices, colors, material, scene}){
+	createCustomMesh({name, positions, indices, colors = undefined, material, scene}){
 		const customMesh = new BABYLON.Mesh(name, scene)
 		customMesh.material = material
 

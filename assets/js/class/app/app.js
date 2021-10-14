@@ -32,7 +32,7 @@ export default class{
     // create
     create(engine){
         const scene = new BABYLON.Scene(engine)
-        scene.clearColor = new BABYLON.Color4(0, 0, 0, 1)
+        scene.clearColor = new BABYLON.Color4(0, 0, 0, 0)
 
         // for(const module in this.modules){
         //     const instance = this.modules[module]

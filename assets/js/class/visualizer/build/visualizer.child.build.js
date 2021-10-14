@@ -83,7 +83,5 @@ export default class{
         }
 
         this.mesh.updateVerticesData(BABYLON.VertexBuffer.PositionKind, array)
-
-        // this.mesh.updateVerticesData(BABYLON.VertexBuffer.PositionKind, position)
     }
 }
